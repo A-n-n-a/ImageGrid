@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9565B840235508CE007815E1 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565B83F235508CE007815E1 /* Image.swift */; };
 		9565B84323550AC3007815E1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565B84223550AC3007815E1 /* Tile.swift */; };
+		9565B845235516BC007815E1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565B844235516BC007815E1 /* Color.swift */; };
+		9565B84823552546007815E1 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565B84723552546007815E1 /* ColorsManager.swift */; };
 		95C953A02354EA0600EBB44F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C9539F2354EA0600EBB44F /* AppDelegate.swift */; };
 		95C953A22354EA0600EBB44F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C953A12354EA0600EBB44F /* SceneDelegate.swift */; };
 		95C953A42354EA0600EBB44F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C953A32354EA0600EBB44F /* ViewController.swift */; };
@@ -18,11 +20,14 @@
 		95C953AF2354EA0A00EBB44F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C953AD2354EA0A00EBB44F /* LaunchScreen.storyboard */; };
 		95C953BB2354EE0400EBB44F /* MatrixCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C953B92354EE0400EBB44F /* MatrixCell.swift */; };
 		95C953BC2354EE0400EBB44F /* MatrixCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C953BA2354EE0400EBB44F /* MatrixCell.xib */; };
+		95C9D5FD2356592E00E428D8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C9D5FC2356592E00E428D8 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9565B83F235508CE007815E1 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9565B84223550AC3007815E1 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		9565B844235516BC007815E1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9565B84723552546007815E1 /* ColorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		95C9539C2354EA0600EBB44F /* ImageGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C9539F2354EA0600EBB44F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C953A12354EA0600EBB44F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		95C953B02354EA0A00EBB44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95C953B92354EE0400EBB44F /* MatrixCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixCell.swift; sourceTree = "<group>"; };
 		95C953BA2354EE0400EBB44F /* MatrixCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatrixCell.xib; sourceTree = "<group>"; };
+		95C9D5FC2356592E00E428D8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +56,8 @@
 		9565B83E235508A8007815E1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9565B83F235508CE007815E1 /* Image.swift */,
+				9565B8462355252F007815E1 /* Extensions */,
+				9565B84723552546007815E1 /* ColorsManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -61,6 +68,16 @@
 				9565B84223550AC3007815E1 /* Tile.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9565B8462355252F007815E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9565B83F235508CE007815E1 /* Image.swift */,
+				9565B844235516BC007815E1 /* Color.swift */,
+				95C9D5FC2356592E00E428D8 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		95C953932354EA0600EBB44F = {
@@ -180,9 +197,12 @@
 			files = (
 				9565B840235508CE007815E1 /* Image.swift in Sources */,
 				95C953A42354EA0600EBB44F /* ViewController.swift in Sources */,
+				95C9D5FD2356592E00E428D8 /* String.swift in Sources */,
 				95C953BB2354EE0400EBB44F /* MatrixCell.swift in Sources */,
 				9565B84323550AC3007815E1 /* Tile.swift in Sources */,
 				95C953A02354EA0600EBB44F /* AppDelegate.swift in Sources */,
+				9565B845235516BC007815E1 /* Color.swift in Sources */,
+				9565B84823552546007815E1 /* ColorsManager.swift in Sources */,
 				95C953A22354EA0600EBB44F /* SceneDelegate.swift in Sources */,
 				95C953AA2354EA0600EBB44F /* ImageGrid.xcdatamodeld in Sources */,
 			);

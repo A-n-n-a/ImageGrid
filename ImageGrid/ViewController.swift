@@ -14,18 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var tiles = [Tile]() {
-        didSet {
-            collectionView.isHidden = tiles.isEmpty
-            collectionView.reloadData()
-        }
-    }
+    var tiles = [Tile]()
     
     var image: CGImage?
     let times = 30
     var width: Int?
     var height: Int?
     var cellWidth: CGFloat?
+    
+    var action = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +40,53 @@ class ViewController: UIViewController {
     }
 
     @IBAction func split(_ sender: Any) {
+        switch action {
+        case 0:
+            splitImage()
+        default:
+            collectionView.reloadData()
+        }
         
+        action += 1
+    }
+    
+    func splitImage() {
         guard let width = width else { return }
         let intWidth = Int(width)
         
         for y in 0..<times {
             for x in 0..<times {
-                print("X: ", x, "Y: ", y)
-                print(CGRect(x: x * intWidth, y: y * intWidth, width: intWidth, height: intWidth))
                 if let croppedImage = image?.cropping(to: CGRect(x: x * intWidth, y: y * intWidth, width: intWidth, height: intWidth)) {
                     let tile = Tile(image: croppedImage)
                     tiles.append(tile)
                 }
             }
         }
-        print(tiles.count)
+        
+        collectionView.isHidden = tiles.isEmpty
+        collectionView.reloadData()
     }
     
-    func displayMatrix() {
+    func getColorsArray() {
+//        DispatchQueue.global(qos: .background).async {
+//            let hexArray = self.tiles.compactMap({ (tile) -> String? in
+//                print(tile.mainColor?.hexString)
+//                return tile.mainColor?.hexString
+//            })
+//
+//            //remove duplications
+//            let set = Set(hexArray)
+//            let uniqueSortedArray = Array(set).sorted()
+//
+//            DispatchQueue.main.async {
+//                self.getMainColors(from: uniqueSortedArray)
+//            }
+//        }
+        
+        collectionView.reloadData()
+    }
+    
+    func getMainColors(from array: [String]) {
         
     }
 }
@@ -76,6 +102,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MatrixCell.self), for: indexPath) as! MatrixCell
         cell.tile = tiles[indexPath.item]
         cell.width = cellWidth
+        cell.action = action
+        cell.indexPath = indexPath
         return cell
     }
     
